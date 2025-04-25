@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+
+    /* Chart colors */
+    --chart-1: 210 100% 50%;
+    --chart-2: 260 100% 50%;
+    --chart-3: 10 100% 50%;
+    --chart-4: 30 100% 50%;
+    --chart-5: 60 100% 50%;
+    --chart-6: 90 100% 50%;
+    --chart-7: 120 100% 50%;
+    --chart-8: 150 100% 50%;
+    --chart-9: 180 100% 50%;
+    --chart-10: 210 100% 50%;
+    --chart-11: 240 100% 50%;
+    --chart-12: 270 100% 50%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    /* Chart colors */
+    --chart-1: 210 100% 50%;
+    --chart-2: 260 100% 50%;
+    --chart-3: 10 100% 50%;
+    --chart-4: 30 100% 50%;
+    --chart-5: 60 100% 50%;
+    --chart-6: 90 100% 50%;
+    --chart-7: 120 100% 50%;
+    --chart-8: 150 100% 50%;
+    --chart-9: 180 100% 50%;
+    --chart-10: 210 100% 50%;
+    --chart-11: 240 100% 50%;
+    --chart-12: 270 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Estilos futuristas personalizados */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600;
+}
+
+.gradient-bg {
+  @apply bg-gradient-to-br from-black via-slate-900 to-black;
+}
+
+.animated-border {
+  position: relative;
+}
+
+.animated-border::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 200, 255, 0.8), transparent);
+  transition: width 0.3s ease;
+}
+
+.animated-border:hover::after {
+  width: 100%;
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Efecto de neón para textos */
+.neon-text {
+  text-shadow: 0 0 5px rgba(0, 200, 255, 0.5), 0 0 10px rgba(0, 200, 255, 0.3);
+}
+
+/* Efecto de neón para bordes */
+.neon-border {
+  box-shadow: 0 0 5px rgba(0, 200, 255, 0.5), 0 0 10px rgba(0, 200, 255, 0.3), inset 0 0 5px rgba(0, 200, 255, 0.2);
+}
+
+/* Fondo de cuadrícula futurista */
+.grid-bg {
+  background-image: linear-gradient(to right, rgba(5, 5, 15, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(5, 5, 15, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Efecto de desenfoque para fondos */
+.blur-backdrop {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
