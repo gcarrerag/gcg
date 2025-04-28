@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
+import Link from "next/link" // ✅ Nova línia
 
 export default function CTA() {
   const { t } = useLanguage()
@@ -41,11 +42,14 @@ export default function CTA() {
                 {t("cta.description")}
               </p>
               <Button
+                asChild
                 size="lg"
                 className="group bg-primary-600 hover:bg-primary-700 text-white transition-all duration-300"
               >
-                {t("cta.button")}
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <Link href="#contacto">
+                  {t("cta.button")}
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
               </Button>
             </motion.div>
           </div>

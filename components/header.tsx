@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
-import { Menu, X, ChevronRight } from "lucide-react"
+import { Menu, X, ChevronRight } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "./mode-toggle"
 import { useMobile } from "@/hooks/use-mobile"
@@ -34,7 +34,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  if (!mounted) return null // 👈 després de tots els hooks
+  if (!mounted) return null
 
   const navItems = [
     { name: t("nav.home"), href: "#" },
@@ -93,7 +93,7 @@ export default function Header() {
     },
     visible: {
       opacity: 1,
-      height: "100dvh", // Use dynamic viewport height for better mobile experience
+      height: "100dvh",
       transition: {
         duration: 0.3,
         when: "beforeChildren",
@@ -127,10 +127,10 @@ export default function Header() {
         backdropFilter: `blur(${headerBlur}px)`,
       }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/10 dark:bg-gray-900/70 py-3 shadow-lg" : "bg-transparent py-5"
+        isScrolled ? "bg-white/10 dark:bg-gray-900/70 py-3 shadow-soft" : "bg-transparent py-5"
       }`}
     >
-      <div className="container flex items-center justify-between">
+      <div className="section-container flex items-center justify-between">
         <Link href="/" className="relative z-50">
           <motion.div
             variants={logoVariants}
@@ -140,7 +140,7 @@ export default function Header() {
             className="text-xl sm:text-2xl font-bold font-serif"
           >
             <span className="text-gray-900 dark:text-white">
-              GCG<span className="text-primary-600">Solutions</span>
+              GCG<span className="text-rose-500 dark:text-rose-400">Solutions</span>
             </span>
           </motion.div>
         </Link>
@@ -166,8 +166,8 @@ export default function Header() {
                   onClick={() => handleLinkClick(index)}
                   className={`text-sm font-medium transition-colors relative z-10 ${
                     activeLink === index
-                      ? "text-primary-600 dark:text-primary-400"
-                      : "text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400"
+                      ? "text-rose-500 dark:text-rose-400"
+                      : "text-gray-700 dark:text-gray-200 hover:text-rose-500 dark:hover:text-rose-400"
                   }`}
                 >
                   {item.name}
@@ -180,7 +180,7 @@ export default function Header() {
                       animate={{ opacity: 1, width: "100%" }}
                       exit={{ opacity: 0, width: 0 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute bottom-0 left-0 h-px bg-primary-600 dark:bg-primary-400"
+                      className="absolute bottom-0 left-0 h-px bg-rose-500 dark:bg-rose-400"
                     />
                   )}
                 </AnimatePresence>
@@ -188,7 +188,7 @@ export default function Header() {
                 {activeLink === index && (
                   <motion.div
                     layoutId="activeNav"
-                    className="absolute bottom-0 left-0 w-full h-px bg-primary-600 dark:bg-primary-400"
+                    className="absolute bottom-0 left-0 w-full h-px bg-rose-500 dark:bg-rose-400"
                     transition={{ duration: 0.3 }}
                   />
                 )}
@@ -198,13 +198,16 @@ export default function Header() {
               <LanguageSwitcher />
               <ModeToggle />
               <motion.div variants={itemVariants}>
-                <Button
-                  size="sm"
-                  className="bg-primary-600 hover:bg-primary-700 text-white border-0 transition-all duration-300"
-                >
-                  {t("nav.consultation")}
-                  <ChevronRight className="ml-1 h-4 w-4" />
-                </Button>
+                <Link href="/#contacto">
+		  <Button
+		    size="sm"
+		    className="bg-rose-500 hover:bg-rose-600 text-white border-0 transition-all duration-300"
+		  >
+		    {t("nav.consultation")}
+		    <ChevronRight className="ml-1 h-4 w-4" />
+		  </Button>
+		</Link>
+
               </motion.div>
             </div>
           </motion.nav>
@@ -220,7 +223,7 @@ export default function Header() {
               size="icon"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
-              className="relative z-50 text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+              className="relative z-50 text-gray-700 dark:text-gray-200 hover:text-rose-500 dark:hover:text-rose-400 transition-colors"
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -243,7 +246,7 @@ export default function Header() {
                     <Link
                       href={item.href}
                       onClick={() => handleLinkClick(index)}
-                      className="text-xl font-medium text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                      className="text-xl font-medium text-gray-700 dark:text-gray-200 hover:text-rose-500 dark:hover:text-rose-400 transition-colors"
                     >
                       {item.name}
                     </Link>
@@ -251,17 +254,20 @@ export default function Header() {
                     {activeLink === index && (
                       <motion.div
                         layoutId="activeMobileNav"
-                        className="absolute -bottom-2 left-0 w-full h-px bg-primary-600 dark:bg-primary-400"
+                        className="absolute -bottom-2 left-0 w-full h-px bg-rose-500 dark:bg-rose-400"
                         transition={{ duration: 0.3 }}
                       />
                     )}
                   </motion.div>
                 ))}
                 <motion.div variants={mobileItemVariants} className="mt-4">
-                  <Button className="bg-primary-600 hover:bg-primary-700 text-white border-0 transition-all duration-300">
-                    {t("nav.consultation")}
-                    <ChevronRight className="ml-1 h-4 w-4" />
-                  </Button>
+                  <Link href="/#contacto">
+			  <Button className="bg-rose-500 hover:bg-rose-600 text-white border-0 transition-all duration-300">
+			    {t("nav.consultation")}
+			    <ChevronRight className="ml-1 h-4 w-4" />
+			  </Button>
+			</Link>
+
                 </motion.div>
               </nav>
             </motion.div>

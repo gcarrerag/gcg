@@ -1,3 +1,4 @@
+import nodemailer from "nodemailer"
 import { NextResponse } from "next/server"
 
 export async function POST(request: Request) {
@@ -5,22 +6,38 @@ export async function POST(request: Request) {
     const body = await request.json()
     const { name, email, phone, message } = body
 
-    // Validar los datos
     if (!name || !email || !message) {
-      return NextResponse.json({ error: "Faltan campos requeridos" }, { status: 400 })
+      return NextResponse.json({ error: "Falten camps requerits" }, { status: 400 })
     }
 
-    // Aquí iría la lógica para enviar el email, guardar en base de datos, etc.
-    // Por ejemplo, usando un servicio de email como SendGrid, Mailgun, etc.
+    // Configurar transporter de nodemailer
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER, // El teu Gmail
+        pass: process.env.EMAIL_PASS, // Contrasenya o "App password"
+      },
+    })
 
-    console.log("Datos de contacto recibidos:", { name, email, phone, message })
+    // Configurar contingut del correu
+    await transporter.sendMail({
+      from: `"Web Contact Form" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_TO, // On vols rebre'l
+      replyTo: email, // <<--- AIXÒ FA QUE RESPONGUIS DIRECTAMENT AL CLIENT
+      subject: `Nou missatge de ${name}`,
+      html: `
+        <p><strong>Nom:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Telèfon:</strong> ${phone}</p>
+        <p><strong>Missatge:</strong></p>
+        <p>${message}</p>
+      `,
+    })
 
-    // Simular un retraso para la demostración
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    return NextResponse.json({ success: true, message: "Mensaje enviado correctamente" }, { status: 200 })
+    return NextResponse.json({ success: true, message: "Missatge enviat correctament" }, { status: 200 })
   } catch (error) {
-    console.error("Error al procesar la solicitud de contacto:", error)
-    return NextResponse.json({ error: "Error al procesar la solicitud" }, { status: 500 })
+    console.error("Error enviant el correu:", error)
+    return NextResponse.json({ error: "Error intern" }, { status: 500 })
   }
 }
+
