@@ -121,7 +121,7 @@ export default function Process() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 relative"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 sm:gap-x-6 gap-y-8 sm:gap-y-12 relative"
         >
           {/* Línea de conexión central */}
           <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gray-200 dark:bg-gray-700 hidden lg:block" />
@@ -134,21 +134,23 @@ export default function Process() {
               onMouseEnter={() => setHoveredStep(index)}
               onMouseLeave={() => setHoveredStep(null)}
             >
-              <div className="flex flex-col items-center text-center">
+              <div className="flex flex-col items-center text-center px-2 sm:px-4">
                 <div className="relative">
-                  <div className="relative p-4 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-primary-600 dark:text-primary-400 mb-6 transition-all duration-300 transform hover:scale-105 shadow-md">
+                  <div className="relative p-3 sm:p-4 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-primary-600 dark:text-primary-400 mb-4 sm:mb-6 transition-all duration-300 transform hover:scale-105 shadow-md">
                     {step.icon}
                   </div>
 
                   {/* Número de paso */}
-                  <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-primary-600 text-white flex items-center justify-center text-xs font-bold">
+                  <div className="absolute -top-2 -right-2 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-primary-600 text-white flex items-center justify-center text-xs font-bold">
                     {index + 1}
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">{step.title}</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-900 dark:text-white">
+                  {step.title}
+                </h3>
 
-                <p className="text-gray-600 dark:text-gray-300">{step.description}</p>
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{step.description}</p>
 
                 {/* Línea de conexión animada */}
                 {index < steps.length - 1 && (index % 3 !== 2 || index === 0) && (
@@ -172,7 +174,7 @@ export default function Process() {
           transition={{ duration: 0.5, delay: 1.5 }}
           className="flex justify-center mt-16"
         >
-          <div className="px-6 py-3 rounded-full bg-primary-50 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-700 text-primary-600 dark:text-primary-400 flex items-center space-x-2">
+          <div className="px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-primary-50 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-700 text-primary-600 dark:text-primary-400 flex items-center space-x-2 text-sm sm:text-base">
             <span>{t("process.workflow")}</span>
             <div className="relative w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
               <motion.div

@@ -21,7 +21,7 @@ export default function LanguageSwitcher() {
     <div className="relative">
       <button
         onClick={toggleDropdown}
-        className="flex items-center justify-center h-8 w-8 rounded-full overflow-hidden border border-gray-200/20 hover:border-gray-200/40 transition-colors focus:outline-none"
+        className="flex items-center justify-center h-8 w-8 sm:h-9 sm:w-9 rounded-full overflow-hidden border border-gray-200/20 hover:border-gray-200/40 transition-colors focus:outline-none"
         aria-label={`Idioma actual: ${language === "es" ? "Español" : "Català"}`}
       >
         <img
@@ -38,7 +38,7 @@ export default function LanguageSwitcher() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full right-0 mt-2 w-40 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 z-50"
+            className="absolute top-full right-0 mt-2 w-36 sm:w-40 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 z-50"
           >
             <div className="py-1" role="menu" aria-orientation="vertical">
               <button
@@ -90,3 +90,4 @@ export default function LanguageSwitcher() {
     </div>
   )
 }
+

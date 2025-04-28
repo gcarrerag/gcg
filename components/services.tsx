@@ -122,7 +122,7 @@ export default function Services() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
         >
           {services.map((service, index) => (
             <motion.div
@@ -133,16 +133,16 @@ export default function Services() {
               className="relative group"
             >
               <Card className="border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 h-full relative z-10 transition-all duration-300 hover-lift">
-                <CardHeader>
+                <CardHeader className="pb-2 sm:pb-4">
                   <div
-                    className={`p-3 w-16 h-16 rounded-lg bg-primary-50 dark:bg-primary-900/30 flex items-center justify-center mb-4 text-primary-600 dark:text-primary-400`}
+                    className={`p-2 sm:p-3 w-12 h-12 sm:w-16 sm:h-16 rounded-lg bg-primary-50 dark:bg-primary-900/30 flex items-center justify-center mb-3 sm:mb-4 text-primary-600 dark:text-primary-400`}
                   >
                     {service.icon}
                   </div>
-                  <CardTitle className="text-gray-900 dark:text-white">{service.title}</CardTitle>
+                  <CardTitle className="text-lg sm:text-xl text-gray-900 dark:text-white">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-base text-gray-600 dark:text-gray-300">
+                  <CardDescription className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
                     {service.description}
                   </CardDescription>
                 </CardContent>

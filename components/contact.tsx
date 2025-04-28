@@ -72,7 +72,11 @@ export default function Contact() {
   }
 
   return (
-    <section id="contacto" ref={ref} className="py-20 md:py-32 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
+    <section
+      id="contacto"
+      ref={ref}
+      className="py-16 sm:py-20 md:py-32 bg-gray-50 dark:bg-gray-900 relative overflow-hidden"
+    >
       {/* Fondo elegante */}
       <div className="absolute inset-0 opacity-5 dark:opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-400 to-transparent" />
       <div className="absolute inset-0 opacity-5 dark:opacity-10 bg-[linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:40px_40px]" />
@@ -110,7 +114,7 @@ export default function Contact() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
           {/* Información de contacto */}
           <motion.div style={{ y, opacity }} className="space-y-8">
             <div className="p-8 rounded-2xl bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 relative overflow-hidden">
@@ -118,7 +122,7 @@ export default function Contact() {
                 <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">{t("contact.info.title")}</h3>
 
                 <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
+                  <div className="flex items-start space-x-3 md:space-x-4">
                     <div className="p-3 rounded-full bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400">
                       <Mail className="h-6 w-6" />
                     </div>
@@ -128,7 +132,7 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
+                  <div className="flex items-start space-x-3 md:space-x-4">
                     <div className="p-3 rounded-full bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400">
                       <Phone className="h-6 w-6" />
                     </div>
@@ -138,7 +142,7 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
+                  <div className="flex items-start space-x-3 md:space-x-4">
                     <div className="p-3 rounded-full bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400">
                       <MapPin className="h-6 w-6" />
                     </div>
@@ -161,7 +165,7 @@ export default function Contact() {
 
             {/* Chat Bot Teaser */}
             <div className="p-6 rounded-2xl bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 relative overflow-hidden">
-              <div className="flex items-center space-x-4">
+              <div className="flex flex-wrap items-center gap-3 md:gap-4">
                 <div className="p-3 rounded-full bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400">
                   <MessageSquare className="h-6 w-6" />
                 </div>
@@ -210,7 +214,7 @@ export default function Contact() {
                       )}
                     />
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                       <FormField
                         control={form.control}
                         name="email"

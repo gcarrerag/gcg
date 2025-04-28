@@ -17,7 +17,6 @@ import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 import Link from "next/link"
 
-
 export default function Portfolio() {
   const { t } = useLanguage()
   const [activeTab, setActiveTab] = useState("todos")
@@ -52,8 +51,7 @@ export default function Portfolio() {
       title: "Web informativa para estudio de Arquitectura",
       category: "corporativo",
       image: "/laurea.jpg?height=600&width=800",
-      description:
-        "Sitio web elegante para un estuido de arquitectura con múltiples páginas..",
+      description: "Sitio web elegante para un estuido de arquitectura con múltiples páginas..",
       technologies: ["Html", "CSS", "JavaScript"],
       link: "https://laurea.cat",
     },
@@ -62,7 +60,8 @@ export default function Portfolio() {
       title: "Landing Page Ecomerce",
       category: "landing",
       image: "/ecommerce.jpg?height=600&width=800",
-      description: "Página de aterrizaje para un software como servicio con animaciones y compra de productos con carrito.",
+      description:
+        "Página de aterrizaje para un software como servicio con animaciones y compra de productos con carrito.",
       technologies: ["Next.js", "Tailwind CSS", "Stripe", "Vercel"],
       link: "/portfolio/ecommerce",
     },
@@ -73,7 +72,7 @@ export default function Portfolio() {
       image: "/event.jpg?height=600&width=800",
       description:
         "Plataforma que conecta productores locales con consumidores, incluyendo sistema de pedidos y reseñas.",
-      technologies: ["Next.js", "TypeScript", "Prisma",],
+      technologies: ["Next.js", "TypeScript", "Prisma"],
       link: "/portfolio/event",
     },
     {
@@ -143,7 +142,7 @@ export default function Portfolio() {
             onValueChange={setActiveTab}
             className="w-full max-w-md mx-auto mb-12"
           >
-            <TabsList className="grid grid-cols-4 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-1">
+            <TabsList className="grid grid-cols-2 sm:grid-cols-4 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-1">
               {categories.map((category) => (
                 <TabsTrigger
                   key={category.id}
@@ -162,7 +161,7 @@ export default function Portfolio() {
           initial={{ opacity: 0 }}
           animate={controls}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           <AnimatePresence mode="wait">
             {filteredProjects.map((project) => (
@@ -210,11 +209,13 @@ export default function Portfolio() {
                       </motion.div>
                     </div>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-3xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700">
+                  <DialogContent className="sm:max-w-3xl max-w-[95vw] bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700">
                     <DialogHeader>
-                      <DialogTitle className="text-2xl text-gray-900 dark:text-white">{project.title}</DialogTitle>
+                      <DialogTitle className="text-xl sm:text-2xl text-gray-900 dark:text-white">
+                        {project.title}
+                      </DialogTitle>
                     </DialogHeader>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                       <div className="rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
                         <Image
                           src={project.image || "/placeholder.svg"}
@@ -232,7 +233,7 @@ export default function Portfolio() {
                           <h4 className="text-sm font-medium mb-2 text-gray-700 dark:text-gray-200">
                             {t("portfolio.technologies")}
                           </h4>
-                          <div className="flex flex-wrap gap-2">
+                          <div className="flex flex-wrap gap-1 sm:gap-2">
                             {project.technologies.map((tech, index) => (
                               <span
                                 key={index}
@@ -244,18 +245,18 @@ export default function Portfolio() {
                           </div>
                         </div>
                         {project.link.startsWith("http") ? (
-			  <Button asChild className="bg-primary-600 hover:bg-primary-700 text-white">
-			    <a href={project.link} target="_blank" rel="noopener noreferrer">
-			      {t("portfolio.visit")} <ExternalLink className="ml-2 h-4 w-4" />
-			    </a>
-			  </Button>
-			) : (
-			  <Button asChild className="bg-primary-600 hover:bg-primary-700 text-white">
-			    <Link href={project.link}>
-			      {t("portfolio.visit")} <ExternalLink className="ml-2 h-4 w-4" />
-			    </Link>
-			  </Button>
-			)}
+                          <Button asChild className="bg-primary-600 hover:bg-primary-700 text-white">
+                            <a href={project.link} target="_blank" rel="noopener noreferrer">
+                              {t("portfolio.visit")} <ExternalLink className="ml-2 h-4 w-4" />
+                            </a>
+                          </Button>
+                        ) : (
+                          <Button asChild className="bg-primary-600 hover:bg-primary-700 text-white">
+                            <Link href={project.link}>
+                              {t("portfolio.visit")} <ExternalLink className="ml-2 h-4 w-4" />
+                            </Link>
+                          </Button>
+                        )}
                       </div>
                     </div>
                   </DialogContent>
@@ -266,7 +267,7 @@ export default function Portfolio() {
         </motion.div>
 
         {/* Controles de navegación */}
-        <div className="flex justify-center mt-12 space-x-4">
+        <div className="flex justify-center mt-8 sm:mt-12 space-x-4">
           <Button
             variant="outline"
             size="icon"

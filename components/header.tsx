@@ -93,7 +93,7 @@ export default function Header() {
     },
     visible: {
       opacity: 1,
-      height: "100vh",
+      height: "100dvh", // Use dynamic viewport height for better mobile experience
       transition: {
         duration: 0.3,
         when: "beforeChildren",
@@ -137,7 +137,7 @@ export default function Header() {
             initial="hidden"
             animate="visible"
             whileHover="hover"
-            className="text-2xl font-bold font-serif"
+            className="text-xl sm:text-2xl font-bold font-serif"
           >
             <span className="text-gray-900 dark:text-white">
               GCG<span className="text-primary-600">Solutions</span>
@@ -237,7 +237,7 @@ export default function Header() {
               exit="hidden"
               className="fixed inset-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md z-40 flex flex-col items-center justify-center"
             >
-              <nav className="flex flex-col items-center space-y-8">
+              <nav className="flex flex-col items-center space-y-6 sm:space-y-8">
                 {navItems.map((item, index) => (
                   <motion.div key={item.name} variants={mobileItemVariants} className="relative">
                     <Link

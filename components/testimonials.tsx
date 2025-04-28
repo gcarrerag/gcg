@@ -125,31 +125,31 @@ export default function Testimonials() {
 
         <div
           ref={testimonialsRef}
-          className="relative max-w-4xl mx-auto"
+          className="relative max-w-4xl mx-auto px-4 sm:px-0"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-12 z-10">
+          <div className="absolute top-1/2 -translate-y-1/2 left-0 sm:-left-4 md:-left-12 z-10">
             <Button
               variant="outline"
               size="icon"
-              className="rounded-full border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300"
+              className="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300"
               onClick={prevTestimonial}
               aria-label="Testimonio anterior"
             >
-              <ChevronLeft className="h-5 w-5" />
+              <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
             </Button>
           </div>
 
-          <div className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-12 z-10">
+          <div className="absolute top-1/2 -translate-y-1/2 right-0 sm:-right-4 md:-right-12 z-10">
             <Button
               variant="outline"
               size="icon"
-              className="rounded-full border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300"
+              className="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300"
               onClick={nextTestimonial}
               aria-label="Testimonio siguiente"
             >
-              <ChevronRight className="h-5 w-5" />
+              <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
             </Button>
           </div>
 
@@ -162,11 +162,11 @@ export default function Testimonials() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="bg-white dark:bg-gray-800 rounded-2xl p-8 md:p-12 shadow-lg border border-gray-200 dark:border-gray-700"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 sm:p-8 md:p-12 shadow-lg border border-gray-200 dark:border-gray-700"
               >
-                <div className="flex flex-col md:flex-row gap-8 items-center">
+                <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center">
                   <div className="flex-shrink-0">
-                    <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-primary-100 dark:border-primary-900">
+                    <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-primary-100 dark:border-primary-900">
                       <Image
                         src={testimonials[currentIndex].image || "/placeholder.svg"}
                         alt={testimonials[currentIndex].name}
@@ -175,25 +175,25 @@ export default function Testimonials() {
                       />
                     </div>
                   </div>
-                  <div className="flex-1">
-                    <div className="mb-6 text-primary-400">
-                      <Quote className="h-10 w-10 opacity-20" />
+                  <div className="flex-1 text-center md:text-left">
+                    <div className="mb-4 sm:mb-6 text-primary-400">
+                      <Quote className="h-8 w-8 sm:h-10 sm:w-10 opacity-20 mx-auto md:mx-0" />
                     </div>
-                    <p className="text-lg md:text-xl mb-6 italic text-gray-700 dark:text-gray-200">
+                    <p className="text-base sm:text-lg md:text-xl mb-4 sm:mb-6 italic text-gray-700 dark:text-gray-200">
                       "{testimonials[currentIndex].content}"
                     </p>
                     <div>
-                      <h4 className="font-bold text-lg text-gray-900 dark:text-white">
+                      <h4 className="font-bold text-base sm:text-lg text-gray-900 dark:text-white">
                         {testimonials[currentIndex].name}
                       </h4>
-                      <p className="text-gray-600 dark:text-gray-400 mb-2">
+                      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-2">
                         {testimonials[currentIndex].position}, {testimonials[currentIndex].company}
                       </p>
-                      <div className="flex items-center">
+                      <div className="flex items-center justify-center md:justify-start">
                         {Array.from({ length: 5 }).map((_, i) => (
                           <Star
                             key={i}
-                            className={`h-4 w-4 ${
+                            className={`h-3 w-3 sm:h-4 sm:w-4 ${
                               i < testimonials[currentIndex].rating
                                 ? "text-primary-500 fill-primary-500"
                                 : "text-gray-300 dark:text-gray-600"

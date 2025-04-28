@@ -3,7 +3,6 @@ import { Moon, Sun, Monitor } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { useMounted } from "@/hooks/use-mounted"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
@@ -29,7 +28,7 @@ export function ModeToggle() {
         <Button
           variant="ghost"
           size="icon"
-          className="relative text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+          className="relative text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors h-9 w-9 sm:h-10 sm:w-10"
         >
           <AnimatePresence mode="sync">
             <motion.div key={theme} variants={iconVariants} initial="initial" animate="animate" exit="exit">
@@ -45,19 +44,19 @@ export function ModeToggle() {
       >
         <DropdownMenuItem
           onClick={() => setTheme("light")}
-          className="hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer flex items-center gap-2"
+          className="hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer flex items-center gap-2 py-2.5 sm:py-2"
         >
           <Sun className="h-4 w-4" /> Light
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => setTheme("dark")}
-          className="hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer flex items-center gap-2"
+          className="hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer flex items-center gap-2 py-2.5 sm:py-2"
         >
           <Moon className="h-4 w-4" /> Dark
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => setTheme("system")}
-          className="hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer flex items-center gap-2"
+          className="hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer flex items-center gap-2 py-2.5 sm:py-2"
         >
           <Monitor className="h-4 w-4" /> System
         </DropdownMenuItem>

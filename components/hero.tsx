@@ -50,7 +50,7 @@ export default function Hero() {
         {isLoaded && (
           <motion.div
             style={{ y, opacity }}
-            className="container relative z-10 px-4 py-32 md:py-40 flex flex-col items-center text-center"
+            className="container relative z-10 px-4 py-24 sm:py-32 md:py-40 flex flex-col items-center text-center"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -65,7 +65,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.2 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 max-w-5xl font-serif"
+              className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 max-w-5xl font-serif"
             >
               <span className="inline-block">
                 <motion.span
@@ -131,7 +131,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 w-full max-w-3xl"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-12 sm:mt-16 md:mt-20 w-full max-w-3xl"
             >
               {[
                 { icon: <MousePointer className="h-6 w-6" />, stat: "100+", label: t("hero.stats.projects") },

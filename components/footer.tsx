@@ -87,7 +87,7 @@ export default function Footer() {
       <div className="relative border-b border-gray-200 dark:border-gray-800">
         <div className="container px-4 py-12 md:py-16">
           <div className="max-w-4xl mx-auto">
-            <div className="p-8 md:p-12 rounded-2xl bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 text-center relative overflow-hidden">
+            <div className="p-6 sm:p-8 md:p-12 rounded-2xl bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 text-center relative overflow-hidden">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -101,7 +101,7 @@ export default function Footer() {
                 <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-xl mx-auto">
                   {t("footer.newsletter.description")}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <div className="flex flex-col sm:flex-row gap-3 max-w-full sm:max-w-md mx-auto">
                   <input
                     type="email"
                     placeholder={t("footer.newsletter.placeholder")}
@@ -124,7 +124,7 @@ export default function Footer() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8"
         >
           {/* Logo y descripción */}
           <motion.div variants={itemVariants} className="lg:col-span-2">
@@ -190,7 +190,7 @@ export default function Footer() {
           ))}
         </motion.div>
 
-        <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-gray-200 dark:border-gray-800 mt-8 md:mt-12 pt-6 md:pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 md:mb-0">
             &copy; {currentYear} WebStudio. {t("footer.copyright")}
           </p>
@@ -212,7 +212,7 @@ export default function Footer() {
       </div>
 
       {/* Botón de volver arriba */}
-      <div className="fixed bottom-8 right-8 z-50">
+      <div className="fixed bottom-4 sm:bottom-8 right-4 sm:right-8 z-50">
         <motion.a
           href="#"
           initial={{ opacity: 0, y: 100 }}
