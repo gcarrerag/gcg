@@ -140,7 +140,7 @@ export default function Header() {
             className="text-2xl font-bold font-serif"
           >
             <span className="text-gray-900 dark:text-white">
-              Web<span className="text-primary-600">Studio</span>
+              GCG<span className="text-primary-600">Solutions</span>
             </span>
           </motion.div>
         </Link>

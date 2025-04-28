@@ -15,6 +15,8 @@ import {
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
+import Link from "next/link"
+
 
 export default function Portfolio() {
   const { t } = useLanguage()
@@ -38,59 +40,59 @@ export default function Portfolio() {
   const projects = [
     {
       id: 1,
-      title: "Tienda de Moda Online",
+      title: "Tienda Veterinaria Online",
       category: "ecommerce",
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/vet.jpg?height=600&width=800",
       description: "Tienda online completa con catálogo de productos, carrito de compras y pasarela de pago integrada.",
       technologies: ["Next.js", "Tailwind CSS", "Stripe", "Supabase"],
-      link: "#",
+      link: "https://webapp-cvn.vercel.app",
     },
     {
       id: 2,
-      title: "Web Corporativa Financiera",
+      title: "Web informativa para estudio de Arquitectura",
       category: "corporativo",
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/laurea.jpg?height=600&width=800",
       description:
-        "Sitio web elegante para una empresa de servicios financieros con múltiples páginas y formularios de contacto.",
-      technologies: ["React", "Framer Motion", "Node.js", "MongoDB"],
-      link: "#",
+        "Sitio web elegante para un estuido de arquitectura con múltiples páginas..",
+      technologies: ["Html", "CSS", "JavaScript"],
+      link: "https://laurea.cat",
     },
     {
       id: 3,
-      title: "Landing Page SaaS",
+      title: "Landing Page Ecomerce",
       category: "landing",
-      image: "/placeholder.svg?height=600&width=800",
-      description: "Página de aterrizaje para un software como servicio con animaciones y formulario de suscripción.",
-      technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "Vercel"],
-      link: "#",
+      image: "/ecommerce.jpg?height=600&width=800",
+      description: "Página de aterrizaje para un software como servicio con animaciones y compra de productos con carrito.",
+      technologies: ["Next.js", "Tailwind CSS", "Stripe", "Vercel"],
+      link: "/portfolio/ecommerce",
     },
     {
       id: 4,
-      title: "Marketplace de Productos Locales",
-      category: "ecommerce",
-      image: "/placeholder.svg?height=600&width=800",
+      title: "Landing Page Event",
+      category: "landing",
+      image: "/event.jpg?height=600&width=800",
       description:
         "Plataforma que conecta productores locales con consumidores, incluyendo sistema de pedidos y reseñas.",
-      technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
-      link: "#",
+      technologies: ["Next.js", "TypeScript", "Prisma",],
+      link: "/portfolio/event",
     },
     {
       id: 5,
-      title: "Web para Despacho de Abogados",
-      category: "corporativo",
-      image: "/placeholder.svg?height=600&width=800",
-      description: "Sitio web profesional para un bufete de abogados con secciones de servicios, equipo y blog.",
-      technologies: ["React", "Styled Components", "Contentful", "Netlify"],
-      link: "#",
+      title: "Landing Page Restaurant",
+      category: "landing",
+      image: "/restaurant.jpg?height=600&width=800",
+      description: "Sitio web profesional para un restaurante con carta, reservar mesa...",
+      technologies: ["Next.js", "Styled Components", "Contentful", "Netlify"],
+      link: "/portfolio/restaurant",
     },
     {
       id: 6,
-      title: "Landing Page para App Móvil",
+      title: "Landing Page Saas",
       category: "landing",
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/saas.jpg?height=600&width=800",
       description: "Página de aterrizaje para promocionar una aplicación móvil con animaciones y enlaces de descarga.",
       technologies: ["Next.js", "GSAP", "Tailwind CSS", "Vercel"],
-      link: "#",
+      link: "/portfolio/saas",
     },
   ]
 
@@ -241,11 +243,19 @@ export default function Portfolio() {
                             ))}
                           </div>
                         </div>
-                        <Button asChild className="bg-primary-600 hover:bg-primary-700 text-white">
-                          <a href={project.link} target="_blank" rel="noopener noreferrer">
-                            {t("portfolio.visit")} <ExternalLink className="ml-2 h-4 w-4" />
-                          </a>
-                        </Button>
+                        {project.link.startsWith("http") ? (
+			  <Button asChild className="bg-primary-600 hover:bg-primary-700 text-white">
+			    <a href={project.link} target="_blank" rel="noopener noreferrer">
+			      {t("portfolio.visit")} <ExternalLink className="ml-2 h-4 w-4" />
+			    </a>
+			  </Button>
+			) : (
+			  <Button asChild className="bg-primary-600 hover:bg-primary-700 text-white">
+			    <Link href={project.link}>
+			      {t("portfolio.visit")} <ExternalLink className="ml-2 h-4 w-4" />
+			    </Link>
+			  </Button>
+			)}
                       </div>
                     </div>
                   </DialogContent>

@@ -29,7 +29,7 @@ export const translations = {
     "nav.consultation": "Consulta Gratis",
 
     // Hero
-    "hero.badge": "Diseño Web Elegante",
+    "hero.badge": "GCG Solutions",
     "hero.title.create": "Creamos",
     "hero.title.web": "Experiencias Web",
     "hero.title.spectacular": "Excepcionales",

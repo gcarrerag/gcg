@@ -31,7 +31,7 @@ export function ModeToggle() {
           size="icon"
           className="relative text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
         >
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="sync">
             <motion.div key={theme} variants={iconVariants} initial="initial" animate="animate" exit="exit">
               {getIcon()}
             </motion.div>
